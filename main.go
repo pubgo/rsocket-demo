@@ -9,6 +9,8 @@ import (
 	_ "github.com/rsocket/rsocket-go"
 	"github.com/rsocket/rsocket-go/payload"
 	"github.com/rsocket/rsocket-go/rx/mono"
+
+	_ "github.com/btcsuite/btcd/btcutil/base58"
 )
 
 func main() {

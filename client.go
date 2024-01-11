@@ -2,16 +2,26 @@ package main
 
 import (
 	"context"
+	"encoding/base64"
 	"fmt"
-	"github.com/rsocket/rsocket-go/extension"
-	"log"
-
 	"github.com/rsocket/rsocket-go"
+	"github.com/rsocket/rsocket-go/extension"
 	_ "github.com/rsocket/rsocket-go/extension"
 	"github.com/rsocket/rsocket-go/payload"
+	"log"
 )
 
 func main() {
+	var code = "PB3sbzFbXpNaDAYmG8lPWn1gJmR9aJrY"
+
+	sss, err := base64.StdEncoding.DecodeString(code)
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Println(sss)
+	fmt.Println(string(sss))
+
 	au, err := extension.NewAuthentication("bearer", []byte("eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJSU29ja2V0QnJva2VyIiwic3ViIjoicmVxdWVzdCIsImF1ZCI6WyJhIiwiYiIsInIiLCJyIiwieSJdLCJpYXQiOjE3MDQ4MTIxMjEsImlkIjoiMWJjNGIzMzEtYTQ5ZC00YjU2LWFiMDAtNWI2YzMwNzEzNTkzIiwic2FzIjpbImIiLCJhIiwiciIsInIiLCJ5Il0sIm9yZ3MiOlsiMSJdLCJyb2xlcyI6WyJhIiwiZCIsImkiLCJtIiwibiJdLCJhdXRob3JpdGllcyI6WyJhIiwiZCIsIm0iLCJpIiwibiJdfQ.nDcbnS0f9Vct7M3HTMtWT6i0-MdQ6rF5xjeWQeUzXMLUMN1Cr2GxbkR67KEynbQvK-u1xwrdWzQMV_cZutz6SiK76QGU2sUaF2AYhTHD_99-jMrHXdG9rfTR0fjFTEavDovfrg378-3xShrOan1943m-0TB4JiRgnrzM4AqUOufOV14-hmjR0Is7hwoqQRZQToV2wE630-_KfZS6iWKizB3dqy560A6YLlE2sQNjKmcfUiJ35A9em9Bs8-aCtzxAGrSXPGCsy5PJeAf1Itkbumx31uXn4h2bOCDyEOEaNeTG1qYDZXYdIXiPNXSiebjxg4dXSBlqvecYuMznhTP4UA"))
 	if err != nil {
 		panic(err)
